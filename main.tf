@@ -29,7 +29,7 @@ module "guardduty_to_slack" {
   description                             = "Guardduty to slack lambda"
   handler                                 = "index.handler"
   runtime                                 = "nodejs12.x"
-  source_path                             = "lambda/"
+  source_path                             = "../lambda"
   create_current_version_allowed_triggers = false
 
   environment_variables = {
