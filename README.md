@@ -10,6 +10,7 @@ module "gd_alert" {
   source = "github.com/phundisk/terraform-aws-guardduty-to-slack"
   slack_webhook = "https://hooks.slack.com/services/XXXX"
   slack_channel = "guardduty-channel"
+  region = "us-east-1"
 }
 ```
 
