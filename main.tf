@@ -25,8 +25,7 @@ resource "aws_cloudwatch_event_target" "guardduty_to_slack" {
 module "guardduty_to_slack" {
   source = "terraform-aws-modules/lambda/aws"
 
-  region                                  = var.region
-  function_name                           = "guardduty_to_slack"
+  function_name                           = "guardduty_to_slack-${var.region}"
   description                             = "Guardduty to slack lambda"
   handler                                 = "index.handler"
   runtime                                 = "nodejs12.x"
