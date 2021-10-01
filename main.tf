@@ -19,12 +19,12 @@ EOF
 resource "aws_cloudwatch_event_target" "guardduty_to_slack" {
   rule      = aws_cloudwatch_event_rule.guardduty_to_slack.name
   target_id = "SendToLambda"
-  arn       = module.guardduty_to_slack.this_lambda_function_arn
+  arn       = module.guardduty_to_slack.lambda_function_arn
 }
 
 module "guardduty_to_slack" {
-  source = "terraform-aws-modules/lambda/aws"
-
+  source                                  = "terraform-aws-modules/lambda/aws"
+  version                                 = "2.18.0"
   function_name                           = "guardduty_to_slack-${var.region}"
   description                             = "Guardduty to slack lambda"
   handler                                 = "index.handler"
